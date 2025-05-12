@@ -1,0 +1,29 @@
+<div class="text-white w-full pb-24">
+  <div class="flex flex-col items-center pt-16">
+    <ng-container>
+      <app-small-heading-wrapper
+        [heading]="'Technology Stack'"
+      ></app-small-heading-wrapper>
+
+      <app-large-heading-wrapper
+        [heading]="'unleashing untapped potential'"
+      ></app-large-heading-wrapper>
+      <app-large-heading-wrapper
+        [heading]="'Curated capabilities'"
+      ></app-large-heading-wrapper>
+    </ng-container>
+
+    <div class="w-full">
+      <ng-container>
+        <div class="flex flex-wrap gap-4 justify-center mt-16">
+          <div
+            *ngFor="let skill of skills"
+            class="border border-secondary text-secondary px-4 py-2"
+          >
+            {{ skill }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

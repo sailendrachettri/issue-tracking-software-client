@@ -1,0 +1,21 @@
+<div class="flex flex-col h-screen">
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 bg-gray-100">
+      <!-- Header -->
+      <header class="w-full">
+        <app-header></app-header>
+      </header>
+
+      <div class="p-3 mt-16">
+        <!-- Render all the dashboard details here -->
+        <ng-content></ng-content>
+      </div>
+    </main>
+  </div>
+</div>

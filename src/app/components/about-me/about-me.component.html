@@ -1,0 +1,34 @@
+<div class="text-white py-16">
+  <div class="flex justify-between items-center gap-2">
+    <div class="w-[100%] sm:max-w-[60%]">
+      <!-- headings -->
+      <div class="flex flex-col items-center sm:items-start">
+        <app-small-heading-wrapper
+          [heading]="'About Me'"
+        ></app-small-heading-wrapper>
+
+        <app-large-heading-wrapper
+          [heading]="'Shaping the Future'"
+        ></app-large-heading-wrapper>
+        <app-large-heading-wrapper
+          [heading]="'With Code'"
+        ></app-large-heading-wrapper>
+      </div>
+
+      <div
+        class="text-slate-500 mt-5 lg:text-lg leading-8 lg:leading-9 text-justify md:text-start"
+      >
+      I am a software developer with hands-on experience in building full-stack applications, API development, and database management. I enjoy creating solutions using technologies like JavaScript, React, Node.js, and PostgreSQL etc. ensuring smooth user experiences and functional backend systems.
+      </div>
+
+      <div>
+        <div class="mt-5 italic text-slate-500">~Keep Coding Good Stuff~</div>
+      </div>
+    </div>
+    <div class="hidden sm:block sm:max-w-[40%]">
+      <div class="bg-secondary pt-6 pe-6">
+        <img [src]="meImage" alt="Me" class="h-full w-full bg-ternary" />
+      </div>
+    </div>
+  </div>
+</div>

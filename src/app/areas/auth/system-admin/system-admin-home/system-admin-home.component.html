@@ -1,0 +1,69 @@
+<app-dashboard>
+  <!-- Newsletter Subscriptions Section -->
+  <div class="mb-8 bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-4">
+      Newsletter Subscriptions Status
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-blue-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Subscriptions Today</p>
+        <p class="text-xl font-bold text-blue-600">
+          {{ dashboardDetails?.newsletters_today || "N/A" }}
+        </p>
+      </div>
+      <div class="bg-green-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Subscriptions Last 7 Days</p>
+        <p class="text-xl font-bold text-green-600">
+          {{ dashboardDetails?.newsletters_last_7_days || "N/A" }}
+        </p>
+      </div>
+      <div class="bg-red-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Unsubscribes Last 7 Days</p>
+        <p class="text-xl font-bold text-red-600">
+          {{
+            dashboardDetails?.unsubscribes_last_7_days >= 0
+              ? dashboardDetails?.unsubscribes_last_7_days
+              : "N/A"
+          }}
+        </p>
+      </div>
+      <div class="bg-purple-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Total Subscriptions</p>
+        <p class="text-xl font-bold text-purple-600">
+          {{ dashboardDetails?.total_newsletter_subscriptions || "N/A" }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact / Feedback Section -->
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-4">
+      Contact / Feedback Status
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-yellow-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Contacts Last 7 Days</p>
+        <p class="text-xl font-bold text-yellow-600">
+          {{ dashboardDetails?.contacts_last_7_days || "N/A" }}
+        </p>
+      </div>
+      <div class="bg-indigo-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Contacts Today</p>
+        <p class="text-xl font-bold text-indigo-600">
+          {{
+            dashboardDetails?.contacts_today >= 0
+              ? dashboardDetails?.contacts_today
+              : "N/A"
+          }}
+        </p>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg">
+        <p class="text-sm text-gray-600">Total Contacts</p>
+        <p class="text-xl font-bold text-pink-600">
+          {{ dashboardDetails?.total_contacts || "N/A" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</app-dashboard>
