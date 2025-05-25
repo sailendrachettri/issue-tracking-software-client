@@ -1,69 +1,40 @@
 <app-dashboard>
-  <!-- Newsletter Subscriptions Section -->
-  <div class="mb-8 bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-2xl font-semibold text-gray-800 mb-4">
-      Newsletter Subscriptions Status
-    </h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="bg-blue-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Subscriptions Today</p>
-        <p class="text-xl font-bold text-blue-600">
-          {{ dashboardDetails?.newsletters_today || "N/A" }}
-        </p>
-      </div>
-      <div class="bg-green-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Subscriptions Last 7 Days</p>
-        <p class="text-xl font-bold text-green-600">
-          {{ dashboardDetails?.newsletters_last_7_days || "N/A" }}
-        </p>
-      </div>
-      <div class="bg-red-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Unsubscribes Last 7 Days</p>
-        <p class="text-xl font-bold text-red-600">
-          {{
-            dashboardDetails?.unsubscribes_last_7_days >= 0
-              ? dashboardDetails?.unsubscribes_last_7_days
-              : "N/A"
-          }}
-        </p>
-      </div>
-      <div class="bg-purple-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Total Subscriptions</p>
-        <p class="text-xl font-bold text-purple-600">
-          {{ dashboardDetails?.total_newsletter_subscriptions || "N/A" }}
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact / Feedback Section -->
-  <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-2xl font-semibold text-gray-800 mb-4">
-      Contact / Feedback Status
-    </h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="bg-yellow-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Contacts Last 7 Days</p>
-        <p class="text-xl font-bold text-yellow-600">
-          {{ dashboardDetails?.contacts_last_7_days || "N/A" }}
-        </p>
-      </div>
-      <div class="bg-indigo-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Contacts Today</p>
-        <p class="text-xl font-bold text-indigo-600">
-          {{
-            dashboardDetails?.contacts_today >= 0
-              ? dashboardDetails?.contacts_today
-              : "N/A"
-          }}
-        </p>
-      </div>
-      <div class="bg-pink-50 p-4 rounded-lg">
-        <p class="text-sm text-gray-600">Total Contacts</p>
-        <p class="text-xl font-bold text-pink-600">
-          {{ dashboardDetails?.total_contacts || "N/A" }}
-        </p>
-      </div>
+  <div class="overflow-x-auto">
+    <div class="min-w-[1200px]">
+      <table class="w-full border-collapse text-sm table-auto">
+        <thead class="bg-slate-100 text-slate-700 border-b">
+          <tr class="text-left">
+            <th class="sticky left-0 z-20 bg-slate-100 px-2 py-2 border-r">#</th>
+            <th class="sticky left-[40px] z-20 bg-slate-100 px-2 py-2 border-r">Name</th>
+            <th class="px-2 py-2 text-sm">Priority</th>
+            <th class="px-2 py-2 text-sm">Status</th>
+            <th class="px-2 py-2 text-sm">Opened Date</th>
+            <th class="px-2 py-2 text-sm">Days Old</th>
+            <th class="px-2 py-2 text-sm">Description</th>
+            <th class="px-2 py-2 text-sm">Attachments</th>
+            <th class="px-2 py-2 text-sm">Created By</th>
+            <th class="px-2 py-2 text-sm">Assign to</th>
+            <th class="px-2 py-2 text-sm">Notification Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          <tr *ngFor="let item of tableData; index as i" class="hover:bg-gray-50">
+            <td class="sticky left-0 z-10 bg-white px-2 py-2 border-r">{{ i + 1 }}</td>
+            <td class="sticky left-[40px] z-10 bg-white px-2 py-2 border-r">{{ item.name }}</td>
+            <td class="px-2 py-2">{{ item.priority }}</td>
+            <td class="px-2 py-2">{{ item.status }}</td>
+            <td class="px-2 py-2">{{ item.openedDate }}</td>
+            <td class="px-2 py-2">{{ item.daysOld }}</td>
+            <td class="px-2 py-2 max-w-[200px] truncate" [title]="item.description">
+              {{ item.description }}
+            </td>
+            <td class="px-2 py-2">{{ item.attachments }}</td>
+            <td class="px-2 py-2">{{ item.createdBy }}</td>
+            <td class="px-2 py-2">{{ item.assignTo }}</td>
+            <td class="px-2 py-2">{{ item.notificationStatus }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </app-dashboard>
